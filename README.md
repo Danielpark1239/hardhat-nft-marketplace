@@ -1,4 +1,4 @@
-Backend for a decentralized NFT marketplace. NftMarketplace.sol has 5 basic functions:
+1. Backend for a decentralized NFT marketplace. NftMarketplace.sol has 5 basic functions:
     - `listItem`: List NFTs on the marketplace
     - `buyItem`: buy the NFTs
     - `cancelItem`: Cancel a listing
