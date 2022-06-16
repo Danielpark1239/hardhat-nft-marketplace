@@ -1,13 +1,12 @@
-const { ethers, deployments, network } = require("hardhat")
+const { ethers, network } = require("hardhat")
 const fs = require("fs")
 
-const frontendContractsFile = "../nextjs-nft-marketplace-moralis/constants/networkMapping.json"
-const frontendAbiLocation = "../nextjs-nft-marketplace-moralis/constants/"
+const frontendContractsFile = "../nextjs-nft-marketplace-thegraph/constants/networkMapping.json"
+const frontendAbiLocation = "../nextjs-nft-marketplace-thegraph/constants/"
 
 module.exports = async function () {
     if (process.env.UPDATE_FRONTEND) {
         console.log("Updating frontend...")
-        await deployments.fixture(["nftmarketplace", "basicnft"])
         await updateContractAddresses()
         await updateAbi()
         console.log("Frontend updated!")
