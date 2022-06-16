@@ -1,8 +1,7 @@
-const { ethers, deployments, network } = require("hardhat")
+const { ethers, network } = require("hardhat")
 const { moveBlocks } = require("../utils/move-blocks")
 
 async function mint() {
-    await deployments.fixture(["basicnft"])
     const basicNft = await ethers.getContract("BasicNFT")
 
     console.log("Minting...")
@@ -10,9 +9,9 @@ async function mint() {
     const mintTxReceipt = await mintTx.wait(1)
     const tokenId = mintTxReceipt.events[0].args.tokenId
     console.log(`Token ID: ${tokenId}`)
-    console.log(`NFT Addres: ${basicNft.address}`)
+    console.log(`NFT Address: ${basicNft.address}`)
 
-    if ((network.config.chainId = "31337")) {
+    if (network.config.chainId == "31337") {
         await moveBlocks(2, (sleepAmount = 1000))
     }
 }
